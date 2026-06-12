@@ -1,4 +1,4 @@
-I build open source AI tools and dev utilities — the best ones are in the pins.
+I build open source AI tools and dev utilities. The best ones are in the pins.
 
 Currently [focused](https://github.com/sdi2200262/focus-shell) on building things that help me focus on building things.
 
