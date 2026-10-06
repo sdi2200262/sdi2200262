@@ -1,0 +1,40 @@
+name: Update Date
+
+on:
+  schedule:
+    - cron: '0 0 1 * *'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  update-date:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Update month and year in README
+        run: |
+          python3 -c "
+          import re, datetime
+          current_date = datetime.datetime.now(datetime.timezone.utc).strftime('%B %Y')
+          with open('README.md', 'r', encoding='utf-8') as f:
+              text = f.read()
+          updated = re.sub(r'as of [A-Za-z]+ \d{4}', f'as of {current_date}', text)
+          with open('README.md', 'w', encoding='utf-8') as f:
+              f.write(updated)
+          "
+
+      - name: Commit and push changes
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          if ! git diff --quiet README.md; then
+            DATE=$(date -u +"%B %Y")
+            git commit -m "chore: update date to $DATE" README.md
+            git push origin master
+          else
+            echo "README date is already up to date."
+          fi
