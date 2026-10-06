@@ -1,8 +1,7 @@
-I build open source AI tools and dev utilities. The best ones are in the pins.
+### "Should we read the code?"
 
-Currently [focused](https://github.com/sdi2200262/focus-shell) on building things that help me focus on building things.
+*It depends.*
 
-Some nice work from Uni is here:
-- [UoA Assignments](https://github.com/sdi2200262/uoa-assignments)
+As a counterexample: would you be comfortable if Linux kernel maintainers stopped reviewing code and let autonomous agents commit directly? At least as of October 2026, I am not.
 
-I occasionally contribute to other open source projects I like and use.
+When building agentic software and developer utilities, I prioritize human agency while trying to get the most out of LLMs. Personal favorite projects are pinned below.
